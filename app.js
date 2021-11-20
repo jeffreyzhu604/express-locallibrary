@@ -6,7 +6,11 @@ const logger = require('morgan');
 
 // Setting up mongoose connection
 const mongoose = require("mongoose");
-mongoose.connect(`mongodb+srv://jeffreyzhuu:hahamegaman@cluster0.vvngu.mongodb.net/test-data?retryWrites=true&w=majority`, {
+
+const url = `mongodb+srv://jeffreyzhuu:hahamegaman@cluster0.vvngu.mongodb.net/test-data?retryWrites=true&w=majority`;
+const mongoDB = process.env.MONGODB_URI || url;
+
+mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
