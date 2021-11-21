@@ -119,6 +119,10 @@ exports.author_delete_post = function(req, res, next) {
           Book.find({ 'author': req.body.authorid }).exec(callback)
         },
     }, function(err, results) {
+
+        //  results is an object with properties that contains the
+        // results of calling the functions
+
         if (err) { return next(err); }
         // Success
         if (results.authors_books.length > 0) {
